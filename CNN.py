@@ -46,7 +46,7 @@ test_set = test_datagen.flow_from_directory(
         target_size=[64,64],
         class_mode='binary')
 
-no_of_epocs = 10
+no_of_epocs =2
 history = model.fit(
             training_set,
             steps_per_epoch=100,
@@ -54,8 +54,8 @@ history = model.fit(
             validation_data=test_set,
             validation_steps=10)
 
-accuracy = history.history['accuracy'][9] * 100
+accuracy = history.history['accuracy'][1] * 100
 
 f=open("accuracy.txt",'w')
-f.write("%d" % int(history.history['accuracy'][9] * 100))
+f.write("%d" % int(history.history['accuracy'][1] * 100))
 f.close()
